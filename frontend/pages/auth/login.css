@@ -1,0 +1,129 @@
+/* Login.module.css */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #dbe6f6, #c5796d);
+}
+
+.card {
+  display: flex;
+  width: 800px;
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  background: #ffffff;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.leftSection {
+  background: linear-gradient(to bottom, #1f3c88, #162b6f);
+  color: white;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.portalTitle {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+
+.portalSubtitle {
+  font-style: italic;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.rightSection {
+  background: #f7f9fc;
+  width: 60%;
+  padding: 50px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1f3c88;
+  text-transform: uppercase;
+}
+
+.label {
+  display: block;
+  margin-top: 15px;
+  font-size: 16px;
+  color: #1f3c88;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: 2px solid #1f3c88;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  border-color: #c5796d;
+  outline: none;
+  box-shadow: 0 0 8px rgba(197, 121, 109, 0.5);
+}
+
+.button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: linear-gradient(to right, #c5796d, #8e3b46);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  background: #8e3b46;
+  transform: translateY(-3px);
+}
+
+.footerText {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #162b6f;
+}
+
+.link {
+  color: #c5796d;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: #8e3b46;
+}
