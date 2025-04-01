@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="dashboard-container">
       <div className="dashboard-content">
-        <h1 className="dashboard-title">Welcomeeeeeeeeeeeeeeeee to the Dashboard</h1>
+        <h1 className="dashboard-title">Welcome to the Dashboard</h1>
         <p className="dashboard-subtitle">Select a role to proceed</p>
 
         <div className="dashboard-buttons">
