@@ -1,3 +1,5 @@
+## OBE
+
 To run frontend 
 cd frontend
 npm run dev
@@ -42,3 +44,6 @@ CREATE TABLE HeadOfDepartments (
     Password VARCHAR(255) NOT NULL,
     FOREIGN KEY (Department_ID) REFERENCES departments(id)
 );
+
+
+
