@@ -13,7 +13,14 @@ export default function Login() {
     try {
       const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
-      router.push('/admin/hi');
+      
+      if (userType === 'Admin') {
+        router.push('/admin/hi');
+      } else if (userType === 'Faculty') {
+        router.push('/faculty_login');
+      } else if (userType === 'Student') {
+        router.push('/student_login');
+      }
     } catch (error) {
       alert(error.response?.data?.message || 'Login failed');
     }
