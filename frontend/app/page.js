@@ -29,9 +29,9 @@ export default function Home() {
       <nav className="navbar">
         <h2 className="navbar-title">Sahyadri College of Engineering & Management</h2>
         <div className="nav-links">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact Us</a>
+          <a href="https://www.sahyadri.edu.in/home">Home</a>
+          <a href="https://www.sahyadri.edu.in/vision-and-mission">About</a>
+          <a href="https://www.sahyadri.edu.in/contact">Contact Us</a>
         </div>
       </nav>
       <div className="dashboard-content">
@@ -102,8 +102,11 @@ export default function Home() {
           justify-content: space-between;
           align-items: center;
         }
+        .nav-links a {
+          margin: 0 15px;
+        }
         .dashboard-content {
-          background: rgba(173, 216, 230, 0.2);
+          background: rgba(173, 216, 230, 0.4);
           padding: 3rem;
           border-radius: 10px;
           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
