@@ -1,41 +1,34 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import ButtonGroup from './ButtonGroup'
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('Admin');
+  const [userType, setUserType] = useState('Faculty');
   const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      let endpoint = userType === 'Admin' ? 'admin_login' : 'faculty_login';
+      const res = await axios.post(`http://localhost:5000/api/auth/${endpoint}`, { email, password });
       localStorage.setItem('token', res.data.token);
-      
-      if (userType === 'Admin') {
-        router.push('/admin/hi');
-      } else if (userType === 'Faculty') {
-        router.push('/faculty_login');
-      } else if (userType === 'Student') {
-        router.push('/student_login');
-      }
+      router.push(`/${endpoint}`);
     } catch (error) {
       alert(error.response?.data?.message || 'Login failed');
     }
   };
 
+ 
+
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <div style={styles.buttonGroup}>
-          <button style={userType === 'Admin' ? styles.activeButton : styles.button} onClick={() => setUserType('Admin')}>Admin</button>
-          <button style={userType === 'Faculty' ? styles.activeButton : styles.button} onClick={() => setUserType('Faculty')}>Faculty</button>
-          <button style={userType === 'Student' ? styles.activeButton : styles.button} onClick={() => setUserType('Student')}>Student</button>
-        </div>
+       <ButtonGroup/>
         
-        <h2 style={styles.title}>{userType} Login</h2>
+        <h2 style={styles.title}> Admin Login </h2>
         <form onSubmit={handleLogin}>
           <label style={styles.label}>Email Address</label>
           <input 
