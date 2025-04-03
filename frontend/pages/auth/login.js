@@ -12,23 +12,31 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      let endpoint = userType === 'Admin' ? 'admin_login' : 'faculty_login';
-      const res = await axios.post(`http://localhost:5000/api/auth/${endpoint}`, { email, password });
+      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
-      router.push(`/${endpoint}`);
+      router.push('/admin/hi');
     } catch (error) {
       alert(error.response?.data?.message || 'Login failed');
     }
   };
 
- 
+  const handleUserTypeClick = (type) => {
+    setUserType(type);
+    if (type === 'Admin') {
+      router.push('/auth/login');
+    } else if (type === 'Faculty') {
+      router.push('/auth/faculty_login');
+    } else if (type === 'Student') {
+      router.push('/auth/student_login');
+    }
+  };
 
   return (
     <div style={styles.container}>
       <div style={styles.card}>
        <ButtonGroup/>
         
-        <h2 style={styles.title}> Admin Login </h2>
+        <h2 style={styles.title}>Admin Login</h2>
         <form onSubmit={handleLogin}>
           <label style={styles.label}>Email Address</label>
           <input 

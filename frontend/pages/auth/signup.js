@@ -8,13 +8,14 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
-  const handleSignup = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', { email, password });
-      router.push('/auth/login');
+      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      localStorage.setItem('token', res.data.token);
+      router.push('/dashboard'); // Redirect to dashboard instead of separate admin/faculty routes
     } catch (error) {
-      alert(error.response?.data?.message || 'Signup failed');
+      alert(error.response?.data?.message || 'Login failed');
     }
   };
 
